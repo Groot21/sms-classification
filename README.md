@@ -9,3 +9,4 @@ Incorporated classical ML approaches based on TF-IDF as well as LLM-based approa
 
 1. Creata a conda environment: `conda create -n <name>` and activate it with `conda activate <name>`.
 2. Install requirements: `pip install -r requirements.txt`
+3. Install PyTorch, e.g. `pip install torch torchvision torchaudio`

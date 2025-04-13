@@ -73,23 +73,12 @@ for clf_name, classifier in [('LR', log_regression)]:
     best_model = grid.best_estimator_
 
     predictions = best_model.predict(sms_test)
-    print(type(predictions))
 
     # Evaluation on test data
     evaluator = Evaluator(clf_name)
     evaluator.print_evaluation(predictions, label_test, ['Ham', 'Spam'])
-    '''
-    print(classification_report(label_test, predictions))
 
-    # Confusion Matrix
-    conf_matrix = confusion_matrix(label_test, predictions)
-    display = ConfusionMatrixDisplay(confusion_matrix=conf_matrix, display_labels=['Ham', 'Spam'])
-    display.plot()
-    plt.title(clf_name)
-    plt.show()
-    print('Confusion Matrix:\n', conf_matrix)
-    '''
-
+    # TODO: refactor: move to Evaluator
     # Investigate misclassified samples
     print('\nInvestigate Misclassifications:')
     misclassified_idx = np.where(predictions != label_test.to_numpy())
