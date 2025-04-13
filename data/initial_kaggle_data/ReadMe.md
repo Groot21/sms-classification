@@ -1,0 +1,2 @@
+
+Inititally, the website of the UCI Dataset was not available, so I worked with the corresponding dataset from Kaggle (available at https://www.kaggle.com/datasets/uciml/sms-spam-collection-dataset?resource=download). This dataset was saved with comma as seperator, which resulted in five (instead of two) columns and needed a little more preprocessing. For reasons of completeness, I added the initial notebook and data in the subfolder initial_data.
