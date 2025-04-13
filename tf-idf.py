@@ -43,7 +43,7 @@ decision_tree = sklearn.tree.DecisionTreeClassifier()
 
 
 #for clf_name, classifier in [('LR', log_regression), ('NB', naives_bayes), ('SVM', svm), ('DT', decision_tree)]:
-for clf_name, classifier in [('LR', log_regression)]:
+for clf_name, classifier in [('SVM', svm)]:
 
     print('\n', clf_name.upper())
     
