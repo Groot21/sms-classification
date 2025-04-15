@@ -13,8 +13,8 @@ from transformers import AutoTokenizer, AutoModelForSequenceClassification
 from tqdm.auto import tqdm
 
 
-# Load Training Data
-df = pd.read_csv('data/SMSSpamCollection_proprocessed.csv')
+# Load Data
+df = pd.read_csv('sms_classification/data/SMSSpamCollection_preprocessed.csv')
 
 # Transform categorical labels to binary
 df['label'] = df['label'].map({'spam': 1, 'ham': 0})
@@ -45,10 +45,10 @@ hypothesis_templates = [#"This sms message is {}.",
 # ==> Last one turned out best
 
 
-#sms_evaluation = sms_val
-#label_evaluation = label_val
-sms_evaluation = sms_test
-label_evaluation = label_test
+sms_evaluation = sms_val
+label_evaluation = label_val
+#sms_evaluation = sms_test
+#label_evaluation = label_test
 
 
 # "Hyperparameter Search" over templates
@@ -57,6 +57,7 @@ for template in hypothesis_templates:
     predictions = []
 
     # Use tqdm since inference takes some time
+    # TODO: batching!
     for message in tqdm(sms_evaluation):
         inputs = tokenizer([message] * len(candidate_labels),
                         [template.format(label) for label in candidate_labels],

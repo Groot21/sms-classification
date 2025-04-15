@@ -18,7 +18,7 @@ import sklearn.tree
 
 
 # Load Data
-df = pd.read_csv('data/SMSSpamCollection_proprocessed.csv')
+df = pd.read_csv('sms_classification/data/SMSSpamCollection_preprocessed.csv')
 df['label'] = df['label'].map({'spam': 1, 'ham': 0})
 
 
@@ -55,7 +55,7 @@ for clf_name, classifier in [('SVM', svm)]:
                                'clf__class_weight': [None, 'balanced']},
                         'NB': {'clf__alpha': [0.1, 0.2, 0.5, 1.]},
                         'SVM': {'clf__C': [0.1, 0.2, 0.5, 1.],
-                                'clf__kernel': ['linear', 'poly', 'rbf', 'sigmoid', 'precomputed']},
+                                'clf__kernel': ['linear', 'poly', 'rbf', 'sigmoid']},
                         'DT': {'clf__max_depth': [10, 20, None],
                                'clf__min_samples_split': [0.01, 0.05]}
                         }
